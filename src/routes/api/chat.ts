@@ -24,7 +24,7 @@ Begin with a warm greeting and ask the child's age and what brings them here tod
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
-      POST: async ({ request }) => {
+      POST: async ({ request }: { request: Request }) => {
         try {
           const { messages, lang } = (await request.json()) as {
             messages: { role: "user" | "assistant"; content: string }[];
