@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import "@tanstack/react-start/server-only";
+import type {} from "@tanstack/start-client-core";
 
 const LANG_NAMES: Record<string, string> = {
   en: "English", hi: "Hindi", mr: "Marathi", ta: "Tamil", te: "Telugu", bn: "Bengali",
