@@ -108,6 +108,37 @@ function Home() {
         </div>
       </section>
 
+      {/* Partners highlight */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <div className="rounded-3xl border border-border bg-card p-6 md:p-8">
+          <div className="flex items-center gap-2">
+            <Handshake className="h-5 w-5 text-primary" />
+            <h2 className="text-2xl font-bold">Collaborate with us</h2>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            ParopkaarAI is designed for scale through partnership. We work with NGOs, government health programs, and mission-aligned organizations.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              { icon: HeartHandshake, title: "NGOs", desc: "Field distribution, therapy referrals, and community trust-building." },
+              { icon: Landmark, title: "Government", desc: "RBSK, Ayushman Bharat, NHM — embed AI screening in public health." },
+              { icon: Handshake, title: "Corporates & Academia", desc: "CSR funding, tech partnerships, and clinical validation research." },
+            ].map((p, i) => (
+              <div key={i} className="rounded-2xl border border-border bg-background/60 p-5">
+                <p.icon className="h-5 w-5 text-primary" />
+                <div className="mt-2 font-semibold text-sm">{p.title}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{p.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Link to="/collaborate" className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary-glow">
+              Explore collaboration <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Sample conversations */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="mb-4 text-2xl font-bold">Sample conversations</h2>
