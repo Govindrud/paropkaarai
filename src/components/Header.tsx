@@ -1,15 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { Heart } from "lucide-react";
 import { LanguagePicker } from "./LanguagePicker";
+import logo from "@/assets/logo.jpg";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <Heart className="h-5 w-5" />
-          </div>
+          <img src={logo} alt="ParopkaarAI logo" className="h-10 w-10 rounded-lg object-cover" />
           <div className="leading-tight">
             <div className="font-bold text-foreground">ParopkaarAI</div>
             <div className="text-[10px] uppercase tracking-wide text-muted-foreground">Autism Support</div>
