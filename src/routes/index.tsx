@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mic, MessageSquare, MessageCircle, MapPin, Heart, ShieldCheck, Sparkles } from "lucide-react";
+import { Mic, MessageSquare, MessageCircle, MapPin, Heart, ShieldCheck, Sparkles, Eye, Users, Repeat, Ear, MessagesSquare, PuzzleIcon } from "lucide-react";
 import { useCurrentLang } from "@/components/LanguagePicker";
 import { tr } from "@/lib/i18n";
+import logo from "@/assets/logo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,17 +24,21 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              <Sparkles className="h-3.5 w-3.5" /> AI for underserved communities
-            </span>
-            <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
-              ParopkaarAI
-            </h1>
-            <p className="mt-3 text-lg text-muted-foreground md:text-xl">{tr(lang, "tagline")}</p>
-            <p className="mt-2 text-sm text-muted-foreground">Accessible. Reliable. In your language.</p>
+          <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
+            <img src={logo} alt="ParopkaarAI" className="h-24 w-24 rounded-2xl object-cover shadow-md md:h-32 md:w-32" />
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                <Sparkles className="h-3.5 w-3.5" /> AI for underserved communities
+              </span>
+              <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
+                ParopkaarAI <span className="text-primary">परोपकार</span>
+              </h1>
+              <p className="mt-3 text-lg text-muted-foreground md:text-xl">{tr(lang, "tagline")}</p>
+              <p className="mt-2 text-sm text-muted-foreground">Accessible. Reliable. In your language.</p>
+            </div>
+          </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
               <Link to="/voice" className="group rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:shadow-md hover:-translate-y-0.5">
                 <Mic className="h-7 w-7 text-primary" />
                 <div className="mt-3 font-semibold">{tr(lang, "voiceMode")}</div>
