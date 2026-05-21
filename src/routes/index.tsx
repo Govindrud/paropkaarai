@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mic, MessageSquare, MessageCircle, MapPin, Heart, ShieldCheck, Sparkles, Eye, Users, Repeat, Ear, MessagesSquare, PuzzleIcon } from "lucide-react";
+import { Mic, MessageSquare, MessageCircle, MapPin, Heart, ShieldCheck, Sparkles, Eye, Users, Repeat, Ear, MessagesSquare, PuzzleIcon, Handshake, Landmark, HeartHandshake } from "lucide-react";
 import { useCurrentLang } from "@/components/LanguagePicker";
 import { tr } from "@/lib/i18n";
 import logo from "@/assets/logo.jpg";

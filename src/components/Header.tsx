@@ -18,6 +18,7 @@ export function Header() {
           <Link to="/chat" className="rounded-md px-3 py-1.5 hover:bg-muted" activeProps={{ className: "bg-muted font-medium" }}>Chat</Link>
           <Link to="/whatsapp" className="rounded-md px-3 py-1.5 hover:bg-muted" activeProps={{ className: "bg-muted font-medium" }}>WhatsApp</Link>
           <Link to="/centers" className="rounded-md px-3 py-1.5 hover:bg-muted" activeProps={{ className: "bg-muted font-medium" }}>Centers</Link>
+          <Link to="/collaborate" className="rounded-md px-3 py-1.5 hover:bg-muted" activeProps={{ className: "bg-muted font-medium" }}>Collaborate</Link>
           <Link to="/about" className="rounded-md px-3 py-1.5 hover:bg-muted" activeProps={{ className: "bg-muted font-medium" }}>About</Link>
         </nav>
         <LanguagePicker />
