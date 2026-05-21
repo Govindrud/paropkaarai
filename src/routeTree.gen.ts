@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatsappRouteImport } from './routes/whatsapp'
 import { Route as VoiceRouteImport } from './routes/voice'
+import { Route as CollaborateRouteImport } from './routes/collaborate'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as CentersRouteImport } from './routes/centers'
 import { Route as AboutRouteImport } from './routes/about'
@@ -25,6 +26,11 @@ const WhatsappRoute = WhatsappRouteImport.update({
 const VoiceRoute = VoiceRouteImport.update({
   id: '/voice',
   path: '/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollaborateRoute = CollaborateRouteImport.update({
+  id: '/collaborate',
+  path: '/collaborate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
+  '/collaborate': typeof CollaborateRoute
   '/voice': typeof VoiceRoute
   '/whatsapp': typeof WhatsappRoute
   '/api/chat': typeof ApiChatRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
+  '/collaborate': typeof CollaborateRoute
   '/voice': typeof VoiceRoute
   '/whatsapp': typeof WhatsappRoute
   '/api/chat': typeof ApiChatRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
+  '/collaborate': typeof CollaborateRoute
   '/voice': typeof VoiceRoute
   '/whatsapp': typeof WhatsappRoute
   '/api/chat': typeof ApiChatRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/centers'
     | '/chat'
+    | '/collaborate'
     | '/voice'
     | '/whatsapp'
     | '/api/chat'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/centers'
     | '/chat'
+    | '/collaborate'
     | '/voice'
     | '/whatsapp'
     | '/api/chat'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/centers'
     | '/chat'
+    | '/collaborate'
     | '/voice'
     | '/whatsapp'
     | '/api/chat'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CentersRoute: typeof CentersRoute
   ChatRoute: typeof ChatRoute
+  CollaborateRoute: typeof CollaborateRoute
   VoiceRoute: typeof VoiceRoute
   WhatsappRoute: typeof WhatsappRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/voice'
       fullPath: '/voice'
       preLoaderRoute: typeof VoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collaborate': {
+      id: '/collaborate'
+      path: '/collaborate'
+      fullPath: '/collaborate'
+      preLoaderRoute: typeof CollaborateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CentersRoute: CentersRoute,
   ChatRoute: ChatRoute,
+  CollaborateRoute: CollaborateRoute,
   VoiceRoute: VoiceRoute,
   WhatsappRoute: WhatsappRoute,
   ApiChatRoute: ApiChatRoute,
@@ -187,3 +208,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
