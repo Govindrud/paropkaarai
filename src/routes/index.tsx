@@ -54,7 +54,6 @@ function Home() {
                 <div className="mt-3 font-semibold">{tr(lang, "whatsapp")}</div>
                 <div className="text-xs text-muted-foreground">Familiar chat experience</div>
               </Link>
-            </div>
           </div>
         </div>
       </section>
