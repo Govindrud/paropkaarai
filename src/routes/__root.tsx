@@ -54,33 +54,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){
-var T='Paropakar AI Voice Agent';
-function getPrimary(){try{var s=getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();return s||'oklch(0.38 0.09 150)';}catch(e){return '#1f6b3a';}}
-function getPF(){try{var s=getComputedStyle(document.documentElement).getPropertyValue('--primary-foreground').trim();return s||'#ffffff';}catch(e){return '#ffffff';}}
-function paint(){
-  var P=getPrimary(),F=getPF();
-  var sels=['#omni-minimized-pill','#omni-open-widget-btn','#chat-helper-button-container'];
-  sels.forEach(function(sel){
-    var el=document.querySelector(sel);if(!el)return;
-    el.style.setProperty('background',P,'important');
-    el.style.setProperty('background-color',P,'important');
-    el.style.setProperty('color',F,'important');
-    el.querySelectorAll('*').forEach(function(c){
-      if(c.tagName!=='IMG'&&c.tagName!=='SVG'&&c.tagName!=='PATH')c.style.setProperty('color',F,'important');
-    });
-  });
-}
-function renameWalk(){
-  try{var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);var node;var changed=false;
-  while(node=walker.nextNode()){if(node.nodeValue&&node.nodeValue.indexOf('OmniDimension')!==-1){node.nodeValue=node.nodeValue.replace(/OmniDimension Agent|OmniDimension/g,T);changed=true;}}
-  return changed;}catch(e){return false;}
-}
-var tries=0;
-function tick(){tries++;renameWalk();paint();if(tries<40)setTimeout(tick,500);}
-setTimeout(tick,800);
-new MutationObserver(function(){paint();}).observe(document.documentElement,{childList:true,subtree:true});
-})();`,
+            __html: `(function(){var T='Paropakar AI Voice Agent';var tries=0;var done=false;function rename(){if(done)return false;try{var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);var node;var changed=false;while(node=walker.nextNode()){if(node.nodeValue&&node.nodeValue.indexOf('OmniDimension')!==-1){node.nodeValue=node.nodeValue.replace(/OmniDimension Agent|OmniDimension/g,T);changed=true;}}return changed;}catch(e){return false;}}function poll(){tries++;if(rename()){done=true;return;}if(tries<20)setTimeout(poll,500);}setTimeout(poll,1000);})();`,
           }}
         />
       </body>
