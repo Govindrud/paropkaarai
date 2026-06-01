@@ -5,6 +5,7 @@ import { LanguagePicker } from "./LanguagePicker";
 import logo from "@/assets/logo.jpg";
 
 const NAV = [
+  { to: "/", label: "Home", exact: true },
   { to: "/voice", label: "Voice" },
   { to: "/chat", label: "Chat" },
   { to: "/whatsapp", label: "WhatsApp" },
@@ -13,6 +14,7 @@ const NAV = [
   { to: "/collaborate", label: "Collaborate" },
   { to: "/about", label: "About" },
 ] as const;
+
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -33,6 +35,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
+              activeOptions={"exact" in item && item.exact ? { exact: true } : undefined}
               className="rounded-md px-3 py-1.5 hover:bg-muted"
               activeProps={{ className: "bg-muted font-medium text-primary" }}
             >
@@ -64,6 +67,7 @@ export function Header() {
               <Link
                 key={item.to}
                 to={item.to}
+                activeOptions={"exact" in item && item.exact ? { exact: true } : undefined}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-3 py-2 hover:bg-muted"
                 activeProps={{ className: "bg-muted font-medium text-primary" }}

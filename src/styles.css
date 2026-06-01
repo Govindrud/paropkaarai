@@ -72,18 +72,17 @@
   }
 }
 
-/* Paropakar AI Voice Agent floating widget theming (OmniDimension) */
-#omnidimension-widget-iframe,
-iframe[id*="omnidimension"],
-iframe[src*="omnidim.io"] {
-  z-index: 30 !important;
-  color-scheme: normal;
-  filter: hue-rotate(-25deg) saturate(0.9);
-}
-[id*="omnidimension"] button,
-[class*="omnidimension"] button {
+/* Paropakar AI Voice Agent floating widget (OmniDimension) — brand color */
+#omni-minimized-pill,
+#omni-open-widget-btn {
   background: var(--primary) !important;
-  color: var(--primary-foreground) !important;
-  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--primary) 45%, transparent) !important;
+  background-color: var(--primary) !important;
 }
+#omni-minimized-pill span,
+#omni-minimized-pill div,
+#omni-open-widget-btn span {
+  color: var(--primary-foreground) !important;
+}
+
+
 
