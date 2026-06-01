@@ -35,6 +35,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
+              activeOptions={"exact" in item && item.exact ? { exact: true } : undefined}
               className="rounded-md px-3 py-1.5 hover:bg-muted"
               activeProps={{ className: "bg-muted font-medium text-primary" }}
             >
