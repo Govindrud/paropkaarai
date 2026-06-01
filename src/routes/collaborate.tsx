@@ -56,22 +56,26 @@ function CollaboratePage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-border bg-background/60 p-5">
-              <h3 className="font-semibold text-foreground">Target NGO Partners</h3>
-              <div className="mt-4 space-y-3">
+              <h3 className="font-semibold text-foreground">Verified NGO contacts</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Public contact details checked from official organization pages where available.</p>
+              <div className="mt-4 grid gap-3">
                 {[
-                  { name: "Action For Autism (AFA)", role: "Clinical training & parent support model" },
-                  { name: "Sangath", role: "Community health integration & field research" },
-                  { name: "Om Foundation / local disability NGOs", role: "Regional distribution & therapy referral" },
-                  { name: "Nayi Disha / Udavum Karangal", role: "Parent community & resource hub linkage" },
-                  { name: "Early intervention NGOs", role: "Therapy center directory & practitioner network" },
+                  { name: "Action For Autism (AFA)", role: "Clinical training & parent support", phone: "+91 11 4054 0991 / 0992" },
+                  { name: "Sangath", role: "Community health integration", phone: "+91 78878 72345" },
+                  { name: "Forum for Autism", role: "Parent support and awareness", phone: "+91 90290 18100 / 80808 09116" },
+                  { name: "Nayi Disha", role: "Caregiver resource helpline", phone: "+91 84484 48996" },
+                  { name: "Om Creations Trust", role: "Developmental disability livelihood support", phone: "+91 79775 76254" },
                 ].map((ngo, i) => (
                   <div key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-3">
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary">
                       {i + 1}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="font-medium text-sm">{ngo.name}</div>
                       <div className="text-xs text-muted-foreground">{ngo.role}</div>
+                      <div className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-primary">
+                        <Phone className="h-3 w-3 shrink-0" /> {ngo.phone}
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -54,7 +54,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var T='Paropakar AI Voice Agent';var tries=0;var done=false;function rename(){if(done)return false;try{var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);var node;var changed=false;while(node=walker.nextNode()){if(node.nodeValue&&node.nodeValue.indexOf('OmniDimension')!==-1){node.nodeValue=node.nodeValue.replace(/OmniDimension Agent|OmniDimension/g,T);changed=true;}}return changed;}catch(e){return false;}}function poll(){tries++;if(rename()){done=true;return;}if(tries<20)setTimeout(poll,500);}setTimeout(poll,1000);})();`,
+            __html: `(function(){var T='Paropakar AI Voice Agent';var tries=0;function rename(){try{var root=document.getElementById('chat-helper-button-container');if(!root)return false;root.querySelectorAll('span,div,button').forEach(function(el){if(el.childNodes.length===1&&el.textContent&&/OmniDimension|Omni Dimension|AI Voice Agent/i.test(el.textContent)){el.textContent=T;}});return root.textContent&&root.textContent.indexOf(T)!==-1;}catch(e){return true;}}function poll(){if(rename()||++tries>12)return;setTimeout(poll,350);}setTimeout(poll,700);})();`,
           }}
         />
       </body>

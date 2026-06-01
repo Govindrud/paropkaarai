@@ -65,23 +65,66 @@
 
 @layer base {
   * { border-color: var(--color-border); }
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
   }
 }
 
 /* Paropakar AI Voice Agent floating widget (OmniDimension) — brand color */
+#chat-helper-button-container {
+  left: max(12px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+  bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+  width: min(336px, calc(100vw - 24px)) !important;
+  max-width: calc(100vw - 24px) !important;
+  z-index: 30 !important;
+}
+
 #omni-minimized-pill,
 #omni-open-widget-btn {
   background: var(--primary) !important;
   background-color: var(--primary) !important;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 18%, transparent) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 14px 34px color-mix(in oklab, var(--primary) 26%, transparent) !important;
+  color: var(--primary-foreground) !important;
+  max-width: 100% !important;
+  min-height: 56px !important;
+  padding: 10px 14px !important;
 }
+
 #omni-minimized-pill span,
 #omni-minimized-pill div,
 #omni-open-widget-btn span {
   color: var(--primary-foreground) !important;
+  font-size: 15px !important;
+  line-height: 1.15 !important;
+  max-width: 250px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#omni-minimized-pill img,
+#omni-open-widget-btn img {
+  flex: 0 0 auto !important;
+  height: 34px !important;
+  width: 34px !important;
+}
+
+#chat-iframe-container {
+  bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+  max-height: calc(100vh - 120px) !important;
+  max-width: calc(100vw - 24px) !important;
+  right: 12px !important;
+  z-index: 35 !important;
 }
 
 
