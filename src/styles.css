@@ -71,3 +71,19 @@
     font-feature-settings: "ss01", "cv11";
   }
 }
+
+/* Paropakar AI Voice Agent floating widget theming (OmniDimension) */
+#omnidimension-widget-iframe,
+iframe[id*="omnidimension"],
+iframe[src*="omnidim.io"] {
+  z-index: 30 !important;
+  color-scheme: normal;
+  filter: hue-rotate(-25deg) saturate(0.9);
+}
+[id*="omnidimension"] button,
+[class*="omnidimension"] button {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--primary) 45%, transparent) !important;
+}
+
