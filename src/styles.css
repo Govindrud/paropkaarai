@@ -72,14 +72,26 @@
   }
 }
 
-/* Paropakar AI Voice Agent floating widget theming (OmniDimension)
-   The widget renders inside an iframe so we recolor via CSS filter.
-   hue-rotate shifts the brand cyan/blue toward the project's green primary. */
-#omnidimension-widget-iframe,
-iframe[id*="omnidimension" i],
-iframe[src*="omnidim.io"] {
-  z-index: 30 !important;
-  color-scheme: normal;
-  filter: hue-rotate(150deg) saturate(0.75) brightness(0.95);
+/* Paropakar AI Voice Agent floating widget (OmniDimension) — match brand */
+#omni-minimized-pill {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  box-shadow: 0 10px 28px -10px color-mix(in oklab, var(--primary) 55%, transparent) !important;
 }
+#omni-minimized-pill * {
+  color: var(--primary-foreground) !important;
+}
+#omni-minimized-pill img,
+#omni-minimized-pill svg {
+  filter: brightness(0) invert(1);
+}
+#omni-open-widget-btn {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+#chat-iframe-container,
+#omni-widget-component {
+  z-index: 30 !important;
+}
+
 
