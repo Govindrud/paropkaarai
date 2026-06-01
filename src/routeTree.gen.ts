@@ -14,6 +14,7 @@ import { Route as VoiceRouteImport } from './routes/voice'
 import { Route as CollaborateRouteImport } from './routes/collaborate'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as CentersRouteImport } from './routes/centers'
+import { Route as AwarenessRouteImport } from './routes/awareness'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -43,6 +44,11 @@ const CentersRoute = CentersRouteImport.update({
   path: '/centers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AwarenessRoute = AwarenessRouteImport.update({
+  id: '/awareness',
+  path: '/awareness',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -62,6 +68,7 @@ const ApiChatRoute = ApiChatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/awareness': typeof AwarenessRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
   '/collaborate': typeof CollaborateRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/awareness': typeof AwarenessRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
   '/collaborate': typeof CollaborateRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/awareness': typeof AwarenessRoute
   '/centers': typeof CentersRoute
   '/chat': typeof ChatRoute
   '/collaborate': typeof CollaborateRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/awareness'
     | '/centers'
     | '/chat'
     | '/collaborate'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/awareness'
     | '/centers'
     | '/chat'
     | '/collaborate'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/awareness'
     | '/centers'
     | '/chat'
     | '/collaborate'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AwarenessRoute: typeof AwarenessRoute
   CentersRoute: typeof CentersRoute
   ChatRoute: typeof ChatRoute
   CollaborateRoute: typeof CollaborateRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CentersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/awareness': {
+      id: '/awareness'
+      path: '/awareness'
+      fullPath: '/awareness'
+      preLoaderRoute: typeof AwarenessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AwarenessRoute: AwarenessRoute,
   CentersRoute: CentersRoute,
   ChatRoute: ChatRoute,
   CollaborateRoute: CollaborateRoute,
