@@ -47,6 +47,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          id="omnidimension-web-widget"
+          async
+          src="https://omnidim.io/web_widget.js?secret_key=4f6069097b5f9ae910a34d3f61fd8c06"
+        />
       </body>
     </html>
   );
