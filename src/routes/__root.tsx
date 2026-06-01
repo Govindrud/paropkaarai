@@ -52,6 +52,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
           async
           src="https://omnidim.io/web_widget.js?secret_key=4f6069097b5f9ae910a34d3f61fd8c06"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var T='Paropakar AI Voice Agent';function r(){document.querySelectorAll('body *').forEach(function(el){if(el.childNodes.length===1&&el.childNodes[0].nodeType===3){var t=el.childNodes[0].nodeValue;if(t&&t.indexOf('OmniDimension')!==-1){el.childNodes[0].nodeValue=t.replace(/OmniDimension Agent|OmniDimension/g,T);}}});}new MutationObserver(r).observe(document.body,{childList:true,subtree:true,characterData:true});setInterval(r,1000);})();`,
+          }}
+        />
       </body>
     </html>
   );
